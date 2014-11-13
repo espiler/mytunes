@@ -10,7 +10,6 @@ var SongQueue = Songs.extend({
     this.on('add', function() {
       this.checkQueueLength();
       this.makeEntryView();
-      console.log(this)
     });
     this.on('dequeue', function(song){
       this.remove(song);

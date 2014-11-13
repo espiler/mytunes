@@ -9,7 +9,8 @@ var SongQueue = Songs.extend({
     });
     this.on('add', function() {
       this.checkQueueLength();
-      //see if its the first things thats added
+      this.makeEntryView();
+      console.log(this)
     });
     this.on('dequeue', function(song){
       this.remove(song);
@@ -33,7 +34,12 @@ var SongQueue = Songs.extend({
     if(this.length === 1 ){
       this.playFirst();
     }
+  },
+
+  makeEntryView: function(){
+    new SongQueueEntryView({ model: this.at(this.length-1) });
   }
+
 
 
 });

@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html>
-  <body>
-    <!-- Scripts may be placed anywhere on a page. But FYI, they block rendering of elements
-     below them until after the scripts load-->
+  <head>
     <script src="bower_components/jquery/jquery.min.js"></script>
     <script src="bower_components/underscore/underscore.js"></script>
     <script src="bower_components/backbone/backbone.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 
     <script src="data/data.js"></script>
 
@@ -20,8 +19,13 @@
     <script src="views/AppView.js"></script>
     <script src="views/SongQueueView.js"></script>
     <script src="views/SongQueueEntryView.js"></script>
+    <script src ="main.js"></script>
 
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
     <link href="styles.css" rel="stylesheet"/>
+
+  </head>
+  <body>
 
     <script>
       $(function(){
@@ -33,8 +37,13 @@
         var appView = new AppView({model: app});
 
         // put the view onto the screen
-        $('body').append(appView.render());
+        $('.container').append(appView.render());
+
+
+
       });
     </script>
+    <div class="container">
+    </div>
   </body>
 </html>

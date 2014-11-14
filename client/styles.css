@@ -96,3 +96,20 @@ table tr:last-child td:last-child{
   border-width:0px 0px 0px 0px;
 }
 
+body {
+  margin: 0;
+  padding: 20px;
+}
+
+a {
+  display: block;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+canvas {
+  display: block;
+  background-color: white;
+  width: 60%;
+}
+

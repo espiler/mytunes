@@ -2,7 +2,7 @@
 var LibraryView = Backbone.View.extend({
 
   tagName: "table",
-  className: "library",
+  className: "library col-md-6",
 
   initialize: function() {
     this.render();

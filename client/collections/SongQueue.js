@@ -12,7 +12,11 @@ var SongQueue = Songs.extend({
       this.makeEntryView();
     });
     this.on('dequeue', function(song){
-      this.remove(song);
+      if (song !== this.at(0)) {
+        this.remove(song);
+        return;
+      }
+      this.endSong();
     })
 
   },
@@ -24,9 +28,11 @@ var SongQueue = Songs.extend({
 
   endSong: function(){
     this.shift();
-    if(this.length > 0){
-      this.playFirst();
+    if (this.length === 0){
+      this.trigger("noSongs", this);
+      return;
     }
+    this.playFirst();
   },
 
   checkQueueLength: function(){
@@ -38,8 +44,6 @@ var SongQueue = Songs.extend({
   makeEntryView: function(){
     new SongQueueEntryView({ model: this.at(this.length-1) });
   }
-
-
 
 });
 
